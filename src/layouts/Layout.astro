@@ -1,0 +1,188 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Instituto ProLingua - Formación en Idiomas para Empresas" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<div class="logo"><a href="/">ProLingua</a></div>
+				<ul>
+					<li><a href="#hero">Inicio</a></li>
+					<li><a href="#idiomas">Idiomas</a></li>
+					<li><a href="#about">Sobre Nosotros</a></li>
+					<li><a href="#testimonios">Testimonios</a></li>
+					<li><a href="#contact">Contacto</a></li>
+					<li><a href="/blog">Blog</a></li>
+				</ul>
+			</nav>
+		</header>
+		<slot />
+		<footer>
+			<div class="footer-content">
+				<div class="footer-section">
+					<h3>Contacto</h3>
+					<p>Email: info@prolingua.com</p>
+					<p>Teléfono: +34 123 456 789</p>
+				</div>
+				<div class="footer-section">
+					<h3>Síguenos</h3>
+					<p>Facebook | Twitter | LinkedIn</p>
+				</div>
+				<div class="footer-section">
+					<h3>Dirección</h3>
+					<p>Calle Principal 123, 28001 Madrid, España</p>
+				</div>
+			</div>
+			<p class="copyright">&copy; 2023 ProLingua Institute. Todos los derechos reservados.</p>
+		</footer>
+	</body>
+</html>
+<style is:global>
+	:root {
+		--accent: 0, 123, 255;
+		--accent-light: 153, 204, 255;
+		--accent-dark: 0, 64, 133;
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 30%,
+			white 60%
+		);
+	}
+	html {
+		font-family: 'Roboto', sans-serif;
+		background: #f6f6f6;
+		scroll-behavior: smooth;
+	}
+	body {
+		margin: 0;
+		padding: 0;
+	}
+	code {
+		font-family:
+			Menlo,
+			Monaco,
+			Lucida Console,
+			Liberation Mono,
+			DejaVu Sans Mono,
+			Bitstream Vera Sans Mono,
+			Courier New,
+			monospace;
+	}
+	header {
+		background-color: rgba(255, 255, 255, 0.9);
+		box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 1000;
+		transition: background-color 0.3s ease;
+	}
+	header:hover {
+		background-color: rgba(255, 255, 255, 1);
+	}
+	nav {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 1rem 2rem;
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+	.logo {
+		font-size: 1.5rem;
+		font-weight: bold;
+		color: rgb(var(--accent));
+	}
+	.logo a {
+		text-decoration: none;
+		color: inherit;
+	}
+	nav ul {
+		display: flex;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	nav ul li {
+		margin-left: 1.5rem;
+	}
+	nav ul li a {
+		text-decoration: none;
+		color: #333;
+		font-weight: 500;
+		transition: color 0.3s ease;
+		padding: 0.5rem 1rem;
+		border-radius: 5px;
+	}
+	nav ul li a:hover {
+		color: rgb(var(--accent));
+		background-color: rgba(var(--accent-light), 0.1);
+	}
+	footer {
+		background-color: #23262d;
+		color: #fff;
+		padding: 2rem 0;
+		margin-top: 2rem;
+	}
+	.footer-content {
+		display: flex;
+		justify-content: space-around;
+		flex-wrap: wrap;
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+	.footer-section {
+		margin-bottom: 1rem;
+	}
+	.footer-section h3 {
+		color: rgb(var(--accent-light));
+		margin-bottom: 0.5rem;
+	}
+	.copyright {
+		text-align: center;
+		margin-top: 1rem;
+		padding-top: 1rem;
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	@media (max-width: 768px) {
+		nav {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
+		nav ul {
+			flex-direction: column;
+			width: 100%;
+			margin-top: 1rem;
+		}
+
+		nav ul li {
+			margin-left: 0;
+			margin-bottom: 0.5rem;
+		}
+
+		.footer-content {
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+		}
+	}
+</style>

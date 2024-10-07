@@ -1,0 +1,58 @@
+---
+import MainLayout from './Layout.astro';
+
+const { frontmatter } = Astro.props; // Accede al frontmatter aquí
+---
+
+<MainLayout title={frontmatter.title}>
+  <article class="about-post"> 
+    <h1>{frontmatter.title}</h1>
+    {frontmatter.image && <img src={frontmatter.image} alt={frontmatter.title} class="about-image" loading="lazy" decoding="async"/>} 
+    <div class="about-content">
+      <p>{frontmatter.description}</p>
+      <slot /> 
+    </div>
+  </article>
+</MainLayout>
+
+<style>
+  .about-post {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  h1 {
+    color: rgb(var(--accent)); 
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .about-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+  }
+
+  .about-niveles {
+    color: #666;
+    font-style: italic;
+    margin-bottom: 1rem; 
+  }
+
+  .about-content {
+    line-height: 1.6;
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: 768px) {
+    .about-post {
+      padding: 1rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+  }
+</style>

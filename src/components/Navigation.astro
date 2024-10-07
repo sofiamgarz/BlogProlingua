@@ -1,0 +1,13 @@
+---
+const isRoot = window.location.pathname === '/';
+const baseUrl = window.location.origin;
+---
+
+<ul>
+  <li><a href={isRoot ? "#hero" : `${baseUrl}/#hero`}>Inicio</a></li>
+  <li><a href={isRoot ? "#idiomas" : `${baseUrl}/#idiomas`}>Idiomas</a></li>
+  <li><a href={isRoot ? "#about" : `${baseUrl}/#about`}>Sobre Nosotros</a></li>
+  <li><a href={isRoot ? "#testimonios" : `${baseUrl}/#testimonios`}>Testimonios</a></li>
+  <li><a href={isRoot ? "#contact" : `${baseUrl}/#contact`}>Contacto</a></li>
+  <li><a href={isRoot ? "#blog" : `${baseUrl}/#blog`}>Blog</a></li>
+</ul>

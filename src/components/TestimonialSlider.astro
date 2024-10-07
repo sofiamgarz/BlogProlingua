@@ -1,0 +1,134 @@
+---
+const testimonials = [
+  {
+    name: "Ana Martínez",
+    role: "Directora de Ventas en TechCorp",
+    image:
+      "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    text: "ProLingua ha transformado la forma en que nos comunicamos con nuestros clientes internacionales. ¡Altamente recomendado!",
+  },
+  {
+    name: "Gonzalo Alvarado",
+    role: "CEO de GlobalTrade S.L.",
+    image:
+      "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    text: "Los cursos personalizados de ProLingua han sido fundamentales para nuestro crecimiento en mercados extranjeros.",
+  },
+  {
+    name: "Laura Gómez",
+    role: "Gerente de RRHH en InnovaTech",
+    image:
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    text: "La flexibilidad y calidad de los programas de ProLingua han mejorado significativamente las habilidades lingüísticas de nuestro equipo.",
+  },
+  {
+    name: "Javier Ruiz",
+    role: "Director de Marketing en EcoSolutions",
+    image:
+      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    text: "Gracias a ProLingua, hemos podido expandir nuestro alcance en mercados internacionales con confianza y profesionalismo.",
+  },
+];
+---
+
+<div class="testimonial-slider">
+  <div class="slider-track">
+    {
+      testimonials.concat(testimonials).map((testimonial, index) => (
+        <div class="testimonial-slide" data-key={index}>
+          <img
+            src={testimonial.image}
+            alt={testimonial.name}
+            class="testimonial-image"
+          />
+          <blockquote>
+            {testimonial.text}
+            <cite>
+              <span class="name">{testimonial.name}</span>
+              <span class="role">{testimonial.role}</span>
+            </cite>
+          </blockquote>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .testimonial-slider {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    padding: 2rem 0;
+  }
+
+  .slider-track {
+    display: flex;
+    width: calc(200%); /* Duplicamos el ancho para el efecto continuo */
+    animation: scroll 20s linear infinite;
+  }
+
+  .testimonial-slide {
+    flex: 0 0 50%; /* Cada slide ocupa el 50% del contenedor */
+    box-sizing: border-box;
+  }
+
+  .testimonial-slide {
+    flex: 0 0 20%;
+    padding: 2rem;
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 0 1rem;
+    transition: transform 0.3s ease;
+  }
+
+  .testimonial-slide:hover {
+    transform: translateY(-5px);
+  }
+
+  .testimonial-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    border: 3px solid rgb(var(--accent));
+  }
+
+  blockquote {
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+  }
+
+  cite {
+    display: block;
+    font-style: normal;
+  }
+
+  .name {
+    font-weight: bold;
+    color: rgb(var(--accent));
+    font-size: 1.1rem;
+  }
+
+  .role {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 0.3rem;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+</style>

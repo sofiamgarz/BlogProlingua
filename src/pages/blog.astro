@@ -1,0 +1,64 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+
+const posts = [
+  {
+    title: "La Importancia de las Habilidades Lingüísticas en los Negocios Globales",
+    slug: "habilidades-linguisticas-negocios",
+    excerpt: "Descubre cómo el dominio de idiomas puede dar a tu empresa una ventaja competitiva en el mercado internacional.",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    date: "2023-05-15"
+  },
+  {
+    title: "5 Consejos para una Comunicación Empresarial Efectiva en un Idioma Extranjero",
+    slug: "consejos-comunicacion-empresarial",
+    excerpt: "Consejos prácticos para mejorar tus habilidades lingüísticas en entornos profesionales y aumentar tu confianza.",
+    image: "https://images.unsplash.com/photo-1553484771-371a605b060b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    date: "2023-05-22"
+  },
+  {
+    title: "Cómo Elegir el Mejor Programa de Idiomas para tu Empresa",
+    slug: "elegir-programa-idiomas-empresa",
+    excerpt: "Guía paso a paso para seleccionar el programa de formación en idiomas más adecuado para las necesidades de tu empresa.",
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    date: "2023-05-29"
+  },
+];
+---
+
+<Layout title="Blog - Instituto ProLingua">
+  <main class="blog-page">
+    <h1>Blog de ProLingua</h1>
+    <div class="blog-grid">
+      {posts.map((post) => (
+        <Card
+          title={post.title}
+          body={post.excerpt}
+          href={`/blog/${post.slug}`}
+          image={post.image}
+        />
+      ))}
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .blog-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  h1 {
+    color: rgb(var(--accent));
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    margin-top: 5rem;
+  }
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+</style>

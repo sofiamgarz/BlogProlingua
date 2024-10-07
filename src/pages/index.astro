@@ -1,0 +1,319 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import TestimonialSlider from "../components/TestimonialSlider.astro";
+import ContactForm from "../components/ContactForm.astro";
+
+const blogPosts = [
+  {
+    title:
+      "La Importancia de las Habilidades Lingüísticas en los Negocios Globales",
+    slug: "habilidades-linguisticas-negocios",
+    excerpt:
+      "Descubre cómo el dominio de idiomas puede dar a tu empresa una ventaja competitiva en el mercado internacional.",
+    image:
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    date: "2023-05-15",
+  },
+  {
+    title:
+      "5 Consejos para una Comunicación Empresarial Efectiva en un Idioma Extranjero",
+    slug: "consejos-comunicacion-empresarial",
+    excerpt:
+      "Consejos prácticos para mejorar tus habilidades lingüísticas en entornos profesionales y aumentar tu confianza.",
+    image:
+      "https://images.unsplash.com/photo-1553484771-371a605b060b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    date: "2023-05-22",
+  },
+  {
+    title: "Cómo Elegir el Mejor Programa de Idiomas para tu Empresa",
+    slug: "elegir-programa-idiomas-empresa",
+    excerpt:
+      "Guía paso a paso para seleccionar el programa de formación en idiomas más adecuado para las necesidades de tu empresa.",
+    image:
+      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    date: "2023-05-29",
+  },
+];
+
+const idiomas = [
+  {
+    title: "Inglés",
+    slug: "ingles",
+    excerpt:
+      "Domina el inglés con nuestros cursos online, diseñados para todos los niveles.",
+    image:
+      "https://images.unsplash.com/photo-1486299267070-83823f5448dd?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+  },
+  {
+    title: "Español",
+    slug: "espanol",
+    excerpt:
+      "Aprende español con nuestros cursos online, desde niveles básicos hasta avanzados.",
+    image:
+      "https://images.unsplash.com/photo-1583422409516-2895a77efded?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+  },
+  {
+    title: "Italiano",
+    slug: "italiano",
+    excerpt: "Descubre la belleza del italiano con nuestros cursos online.",
+    image:
+      "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+  },
+  {
+    title: "Francés",
+    slug: "frances",
+    excerpt:
+      "Aprende francés con nuestros cursos online, desde niveles básicos hasta avanzados.",
+    image:
+      "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+  },
+  {
+    title: "Japonés",
+    slug: "japones",
+    excerpt:
+      "Adéntrate en el fascinante mundo del japonés con nuestros cursos online.",
+    image:
+      "https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+  },
+];
+
+const aboutCards = [
+  {
+    slug: "mision",
+    title: "Nuestra Misión",
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    excerpt:
+      "Nuestra misión es proporcionar soluciones de formación en idiomas de alta calidad para empresas y profesionales.",
+  },
+  {
+    slug: "enfoque",
+    title: "Nuestro Enfoque",
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    excerpt:
+      "Nos enfocamos en las necesidades específicas de cada cliente para ofrecer programas de idiomas personalizados.",
+  },
+  {
+    slug: "equipo",
+    title: "Nuestro Equipo",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    excerpt:
+      "Contamos con un equipo de profesionales altamente cualificados y apasionados por la enseñanza de idiomas.",
+  },
+];
+---
+
+<Layout title="Instituto ProLingua - Formación en Idiomas para Empresas">
+  <main>
+    <section id="hero" class="hero-section">
+      <div class="hero-content">
+        <h1>ProLingua Institute</h1>
+        <p>Formación en Idiomas para Empresas</p>
+        <a href="#contact" class="cta-button">Contáctanos</a>
+      </div>
+    </section>
+
+    <section id="idiomas" class="section-container">
+      <h2>Nuestros Idiomas</h2>
+      <div class="language-grid">
+        {
+          idiomas.map((idioma) => (
+            <Card
+              href={`/idiomas/${idioma.slug}`}
+              title={idioma.title}
+              body={idioma.excerpt}
+              image={idioma.image}
+            />
+          ))
+        }
+      </div>
+    </section>
+
+    <section id="about" class="section-container alternate-bg">
+      <h2>Sobre Nosotros</h2>
+      <div class="about-grid">
+        {
+          aboutCards.map((about) => (
+            <Card href={`/about/${about.slug}`} title={about.title} image={about.image} body={about.excerpt}/>
+          ))
+        }
+      </div>
+    </section>
+
+    <section id="testimonios" class="section-container">
+      <h2>Lo que Dicen Nuestros Clientes</h2>
+      <TestimonialSlider />
+    </section>
+
+    <section id="contact" class="section-container alternate-bg">
+      <h2>Contáctanos</h2>
+      <ContactForm />
+    </section>
+
+    <section id="blog" class="section-container">
+      <h2>Nuestro Blog</h2>
+      <div class="blog-preview">
+        {
+          blogPosts.map((post) => (
+            <Card
+              href={`/blog/${post.slug}`}
+              title={post.title}
+              body={post.excerpt}
+              image={post.image}
+            />
+          ))
+        }
+        <a href="/blog" class="view-all-button">Ver todos los artículos</a>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+  }
+
+  .hero-content {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    border-radius: 10px;
+  }
+
+  .hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .cta-button {
+    background-color: rgb(var(--accent));
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+
+  .cta-button:hover {
+    background-color: rgb(var(--accent-light));
+  }
+
+  .section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+
+  .alternate-bg {
+    background-color: #f6f6f6;
+  }
+
+  h2 {
+    text-align: center;
+    color: rgb(var(--accent));
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .language-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+  }
+
+  .language-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .language-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .language-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .language-card h3 {
+    text-align: center;
+    padding: 1rem;
+    color: rgb(var(--accent));
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .blog-preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .view-all-button {
+    display: block;
+    text-align: center;
+    margin-top: 2rem;
+    background-color: rgb(var(--accent));
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+
+  .view-all-button:hover {
+    background-color: rgb(var(--accent-light));
+  }
+
+  @media (max-width: 768px) {
+    .hero-content h1 {
+      font-size: 2.5rem;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+    }
+
+    .section-container {
+      padding: 3rem 1rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+  }
+  .blog-preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .view-all-button {
+    grid-column: 1 / -1;
+    justify-self: center;
+    margin-top: 2rem;
+  }
+</style>
